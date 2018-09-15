@@ -2,7 +2,7 @@
 const express = require('express');
 const app = express(); //Assigns express like a function to a variable
 
-const sqlite3=require('better-sqlite3'); //Import sqlite 3 library
+const sqlite3=require('sqlite3'); //Import sqlite 3 library
 const db = new sqlite3.Database('movies.db'); //Creates a new connection to movies.db. If does not exist, it will create moviesTest.db
 
 //Have 'app' serve staticfiles. 
