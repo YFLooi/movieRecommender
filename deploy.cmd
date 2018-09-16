@@ -106,7 +106,7 @@ if [ -e "$DEPLOYMENT_TARGET/package.json" ]; then
 fi
 
 :: 4. Unzip file
-if [ -e "$DEPLOYMENT_TARGET/failedmodules.zip" ]; then
+if [ -e "$DEPLOYMENT_TARGET/failedModules.zip" ]; then
 	cd "$DEPLOYMENT_TARGET"
 	eval unzip -o failedModules.zip
 	cd - > /dev/null
