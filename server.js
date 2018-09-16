@@ -1,6 +1,7 @@
 //Imports the express library we installed using npm install with package.json in Node
 const express = require('express');
 const app = express(); //Assigns express like a function to a variable
+const port = process.env.PORT || 3000;
 
 const sqlite3=require('sqlite3'); //Import sqlite 3 library
 const db = new sqlite3.Database('movies.sqlite'); //Creates a new connection to movies.db. If does not exist, it will create moviesTest.db
@@ -141,7 +142,7 @@ app.get('/scifi',(req, res, next) => {
 //'3000' is convention for server port number for testing
 //'localhost' is a special operator that operates my pc as a server
 //Blank () = Anonymous function
-app.listen(3000,() => {
+app.listen(port,() => {
 	console.log('Server stated at http://localhost:3000/');
 });
 
