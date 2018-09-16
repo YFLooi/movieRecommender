@@ -5,12 +5,12 @@ const app = express(); //Assigns express like a function to a variable
 const sqlite3=require('sqlite3'); //Import sqlite 3 library
 const db = new sqlite3.Database('movies.sqlite'); //Creates a new connection to movies.db. If does not exist, it will create moviesTest.db
 
-app.use(express.static(__dirname+'/staticFiles'));
+app.use(express.static(__dirname+'/public'));
 
 //GET-s the default.html as the main page to which the app returns to
 app.get('/', function(req,res){
 	console.log('default html loading');
-	res.render('./staticFiles/index.html');
+	res.render('./public/index.html');
 });
 
 //This route GET a list of all user names stored in the db
