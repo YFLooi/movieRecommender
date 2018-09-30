@@ -1,0 +1,125 @@
+/*Overall <html> CSS style. Removes extra whitespace on sides*/
+html{
+  width: 100%;
+  height: 100%;
+  padding-left:4%;
+  padding-right:4%;
+  background-image: url("/icons/curtains.png"); /*For CSS file links, omit the initial / in ./*/
+  background-position: center;
+  background-size: cover; /* Resize the background image to cover the entire container */
+  background-repeat: repeat; /* Repeat the image when image size < page size*/
+  background-color: #cccccc; /* Backup gray backdrop in case image fails to load */
+}
+
+/*Bootstrap style*/
+.row{
+  padding-left:2%;
+  padding-right:2%;
+}
+
+
+/*Banner CSS style--*/
+img#bannerImg {
+  width: 100%;
+  max-height: auto;
+}
+
+/*Page CSS style--*/
+body {
+  background-color: black;
+  color:white; /*Sets all text in <body> to white, unless specified otherwise for a specific class or id*/
+  width:100%;
+}
+h1 {
+  color:white;
+  font-size: 30px;
+}
+h2 {
+  color:white;
+  font-size: 25px;
+}  
+h3 {
+  color:white;
+  font-size: 20px;
+}
+.attribution{
+  font-size:"0.5px";
+  color: rgb(168, 161, 161);
+  margin-left: 52%;
+}
+
+/*Start button*/
+.startButton{
+  /*Dimensions*/
+  margin: 0 35%; 
+  width: 30%;
+  height: 100px;
+  border-radius: 5%; /*Rounds the button's edges*/
+
+  /*Look and feel*/
+  font-size: 25px;
+  padding: 8px; /*Space between text and button's borders*/
+  background-color: #4CAF50; /* Green */
+  color: white; /*Button text colour*/
+  text-align: center;
+  cursor: pointer; /*Cursor changes to pointing hand on hover*/
+
+  /*On hover animation*/
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.startButtonTransition{
+  background-color: rgba(128, 128, 128, 0.575); /* Green on hover*/
+  color: white; /* Text colour before hover*/
+  border: 5px solid white; /*Adds colour to button border */
+}
+.startButtonTransition:hover {
+  background-color: #4CAF50; /* Green on hover*/
+  color: white; /* Text colour after hover*/
+  border: 5px solid white; /*Adds colour to button border */
+}
+
+/*Star ratings*/
+.starRating {
+  width:15%;
+  height:auto;
+  margin-bottom:1.5%;
+}
+
+.backToTop{
+  /*Dimensions*/
+  margin: 0 40%; 
+  width: 20%;
+  border-radius: 5%; /*Rounds the button's edges*/
+} 
+
+/*Generate button*/
+.generateButton{
+  /*Dimensions*/
+  margin: 0 35%; 
+  width: 30%;
+  height: 100px;
+  border-radius: 5%; /*Rounds the button's edges*/
+
+  /*Look and feel*/
+  font-size: 25px;
+  padding: 8px; /*Space between text and button's borders*/
+  background-color: #4CAF50; /* Green */
+  color: white; /*Button text colour*/
+  text-align: center;
+  cursor: pointer; /*Cursor changes to pointing hand on hover*/
+
+  /*On hover animation*/
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+.generateButtonTransition{
+  background-color: rgba(128, 128, 128, 0.575); /* Green on hover*/
+  color: white; /* Text colour before hover*/
+  border: 5px solid white; /*Adds colour to button border */
+}
+.generateButtonTransition:hover {
+  background-color: #4CAF50; /* Green on hover*/
+  color: white; /* Text colour after hover*/
+  border: 5px solid white; /*Adds colour to button border */
+}

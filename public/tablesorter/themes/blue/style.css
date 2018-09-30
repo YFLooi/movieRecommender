@@ -1,0 +1,62 @@
+/* tables */
+table.tablesorter {
+	width: 100%; /*Makes table relative to %browser window width*/
+	background-color: #fff;
+	margin: 10px 0 15px;
+	text-align: left;
+	border-spacing: 1px;
+	border: #ccc 1px solid;
+	border-width: 2px 0 0 2px;
+}
+
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	border: 1px solid #FFF;
+	font-size: 10.5pt;
+	padding: 4px;
+}
+
+table.tablesorter tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	font-size: 10pt;
+	background-color: #FFF;
+	vertical-align: top;
+}
+
+/*Slightly darker coloration for odd rows. 1st <tr> after <thead> is row 1*/
+table.tablesorter tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+
+/*Up and down header arrows on click, 'up/down' arrows if left unclicked*/
+/*light-dark combination on <th> click: #f6f8f9 #ebedee*/
+table.tablesorter .header,
+table.tablesorter .tablesorter-header {
+	background-color: #aaaaaa;
+	background-position: center right;
+	background-repeat: no-repeat;
+	background-image: url(data:image/gif;base64,R0lGODlhDAAMAMQAAAJEjAJCiwJBigJAiANFjgNGjgNEjQRIkQRHkANIkAVMlAVQmAZWnQZUnAdYoAhdpAhZoAlhqQlepQliqQppsApmrQxutgtutQtutAxwtwxwtg1yug1zugxtsw1yuP8A/yH5BAEAAB8ALAAAAAAMAAwAAAUx4Cd+3GiOW4ado2d9VMVm1xg9ptadTsP+QNZEcjoQTBDGCAFgLRSfQgCYMAiCn8EvBAA7);
+	padding: 4px 20px 4px 4px;
+	white-space: normal;
+	cursor: pointer; /*On hover over <th>, cursor becomes pointing hand*/
+}
+
+table.tablesorter .headerSortUp,
+table.tablesorter .tablesorter-headerSortUp,
+table.tablesorter .tablesorter-headerAsc{
+	color: #333; /*Fill colour of arrow on click*/
+	background-color: #565657; /*Colours on click chosen to be deliberately darker*/
+	background-position: center right;
+	background-repeat: no-repeat;
+	background-image: url(data:image/gif;base64,R0lGODlhDAAMANUAAAJCiwNHkANFjgNEjQRIkQNJkQRMlARKkwRKkgVPlwZSmgdaogdYnwhfpghcowlhqgliqglgqAlgpwljqwporwpmrQplrAtsswtqsgtrsgtqsQxttAtvtQtttAxyuQxwtwxxtwxvtg10uw1zuQ1xuP8A/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAACUALAAAAAAMAAwAAAY6wJKwJBoahyNQ6Dj0fDoZCpPEuWgqk4jxs8FQLI+Gg8Esm5kQydFQMC7IwkOAqUiUCAIzIjA4lwBlQQA7);
+}
+table.tablesorter .headerSortDown,
+table.tablesorter .tablesorter-headerSortDown,
+table.tablesorter .tablesorter-headerDesc{
+	color: #333;
+	background-color: #565657;
+	background-position: center right;
+	background-repeat: no-repeat;
+	background-image: url(data:image/gif;base64,R0lGODlhDAAMANUAAAE/iAJBigNFjgNEjQNFjQNDiwRHkQRHjwNHjwROlgRMlQRMlARJkgRKkgZQmAVPlgZWnQZSmgZRmAdXoAdXnwdUnAdbogdZoQhbowlhqAlepglkrAliqQtstAtqsQxyugxyuQxwuAxxuAxxtwxwtgxvtQ10vA12vA10u/8A/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAACkALAAAAAAMAAwAAAY6wJQwdRoah6bP6DhEiVIdDxNEGm4yxlDpiJkwv2AmR2OhVCSJBsJ4gUQeCwOB6VAwBAXwYRAIpwBfQQA7);
+}
+
