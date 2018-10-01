@@ -128,7 +128,7 @@ $(document).ready(function() { //This function is a must to start jQuery
                             function pagerCreate(){
                                 const pager = document.createElement('div');
                                 pager.setAttribute('class', 'pager');
-                                pager.setAttribute('align', 'middle');
+                                pager.setAttribute('align', 'left');
             
                                 const form = document.createElement('form');
                                 const imgFirst = document.createElement('img');
@@ -238,7 +238,7 @@ $(document).ready(function() { //This function is a must to start jQuery
                                   
                                     td.appendChild(document.createElement('br'))
                                     const descriptionDiv = document.createElement('div')
-                                    descriptionDiv.setAttribute('align','justify')
+                                    descriptionDiv.setAttribute('align','left')
                                     descriptionDiv.appendChild(document.createTextNode(data.allDescription[i]))
                                     td.appendChild(descriptionDiv)
 

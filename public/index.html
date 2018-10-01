@@ -93,20 +93,25 @@
 
 <body>
     <title>AMovie Recommender</title>          
-    <!--Don't put into <div>. The edges of the banner will be padded automatically to fit the 12 columns. Let it spill over-->
-    <img id="bannerImg" src="./icons/banner.jpg" alt="banner">
-    <p></p>
-     
-    <div class="col-sm-12">
+    <div class="container">
+        <div class="col-sm-12 text-center"> <!--"text-center" aligns everything in div to center-->
+            <!--Don't put into <div>. The edges of the banner will be padded automatically to fit the 12 columns. Let it spill over-->
+            <img id="bannerImg" class="img-responsive" style="margin:0 auto;" src="./icons/banner.jpg" alt="banner">
+            <p></p>
+        </div>
         <h1>Top 12 movies of 2017-2018</h1>
         <!--Runs topTwelve.js when the page is loaded/refreshed to generate the wrapper-->  
         <section id='wrap' onload="js/topTwelve.js"></section>
         <p></p>
-        <button class="startButton startButtonTransition" id="start_button" onclick="revealRecommendationGenerator(); this.style.display='none'">Create Your Recommendation</button>
+        <div class="col-sm-12 text-center">
+            <!--"text-center" aligns button @ center-->
+            <button class="startButton startButtonTransition" id="start_button" onclick="revealRecommendationGenerator(); this.style.display='none'">Create Your Recommendation</button>  
         <p></p>
+        </div>
+        
     </div>
 
-    <div class="container-fluid"></div>  
+    <div class="container"></div>  
         <div class="col-sm-12" id="hiddenRecomendationGeneratorPt1" style="display:none">
             <h2>Select relevant genre(s)</h2>
             Main genre
@@ -123,7 +128,8 @@
                 <option value="Mystery">Mystery</option>
                 <option value="Sci-Fi">Sci-Fi</option>
             </select>
-            &nbsp;&nbsp;Sub-genre
+            <p></p>
+            Sub-genre
             <select id="subgenre">
                 <option value="None">None</option>
                 <option value="Action">Action</option>
@@ -156,6 +162,7 @@
                 <form name="metascoreRadio" action=""> <!--Tells browser where to send info. Eg process.php -->
                     <input type="radio" name="metascoreRating" value="1" onclick="metascoreRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star1vs5.png"/>
                     <input type="radio" name="metascoreRating" value="2" onclick="metascoreRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star2vs5.png"/>
+                    <br>
                     <input type="radio" name="metascoreRating" value="3" onclick="metascoreRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star3vs5.png"/>
                     <input type="radio" name="metascoreRating" value="4" onclick="metascoreRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star4vs5.png"/>
                     <input type="radio" name="metascoreRating" value="5" onclick="metascoreRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star5vs5.png"/>
@@ -165,6 +172,7 @@
                 <form name="imdbRatingRadio" action=""> <!--Tells browser where to send info. Eg process.php -->
                     <input type="radio" name="imdbRating" value="1" onclick="imdbRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star1vs5.png"/>
                     <input type="radio" name="imdbRating" value="2" onclick="imdbRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star2vs5.png"/>
+                    <br>
                     <input type="radio" name="imdbRating" value="3" onclick="imdbRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star3vs5.png"/>
                     <input type="radio" name="imdbRating" value="4" onclick="imdbRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star4vs5.png"/>
                     <input type="radio" name="imdbRating" value="5" onclick="imdbRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star5vs5.png"/>
@@ -177,6 +185,7 @@
                 <form name="directorRadio" action=""> <!--Tells browser where to send info. Eg process.php -->
                     <input type="radio" name="directorRating" value="1" onclick="directorRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star1vs5.png"/>
                     <input type="radio" name="directorRating" value="2" onclick="directorRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star2vs5.png"/>
+                    <br>
                     <input type="radio" name="directorRating" value="3" onclick="directorRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star3vs5.png"/>
                     <input type="radio" name="directorRating" value="4" onclick="directorRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star4vs5.png"/>
                     <input type="radio" name="directorRating" value="5" onclick="directorRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star5vs5.png"/>
@@ -186,6 +195,7 @@
                 <form name="leadRadio" action=""> <!--Tells browser where to send info. Eg process.php -->
                     <input type="radio" name="leadRating" value="1" onclick="leadRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star1vs5.png"/>
                     <input type="radio" name="leadRating" value="2" onclick="leadRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star2vs5.png"/>
+                    <br>
                     <input type="radio" name="leadRating" value="3" onclick="leadRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star3vs5.png"/>
                     <input type="radio" name="leadRating" value="4" onclick="leadRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star4vs5.png"/>
                     <input type="radio" name="leadRating" value="5" onclick="leadRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star5vs5.png"/>
@@ -195,10 +205,12 @@
                 <form name="supportRadio" action=""> <!--Tells browser where to send info. Eg process.php -->
                     <input type="radio" name="supportRating" value="1" onclick="supportRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star1vs5.png"/>
                     <input type="radio" name="supportRating" value="2" onclick="supportRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star2vs5.png"/>
+                    <br>
                     <input type="radio" name="supportRating" value="3" onclick="supportRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star3vs5.png"/>
                     <input type="radio" name="supportRating" value="4" onclick="supportRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star4vs5.png"/>
                     <input type="radio" name="supportRating" value="5" onclick="supportRankScorer();"/>&nbsp;<img class="starRating" src="./icons/star5vs5.png"/>
                 </form>
+                <p></p>
                 <a href='https://openclipart.org/detail/117079/5-star-rating-system' class="attribution">Stars designed by openclipart</a>
             </div>
         </div>
@@ -206,7 +218,7 @@
         <div class="col-sm-12" id="hiddenRecomendationGeneratorPt5" style="display:none">
             <p></p>
             <!--Bootstrap Collapse hides Advanced options. "btn-basic" is a CSS colour reference-->
-            <button type="button" class="btn btn-basic" data-toggle="collapse" data-target="#hiddenOptions">Advanced Options</button>
+            <button type="button" class="btn btn-basic text-left" data-toggle="collapse" data-target="#hiddenOptions">Advanced Options</button>
             <div id="hiddenOptions" class="collapse">  
                 <p></p>
                 Sort results according to:
@@ -230,14 +242,20 @@
                 <p></p>
             </div>
             <p></p>
-            <button id="generateButton" class="generateButton generateButtonTransition" onclick="revealBackToTop()">Generate Recommendations!</button>
-            <p></p>
+            <div class="col-sm-12 text-center">
+                <button id="generateButton" class="generateButton generateButtonTransition" onclick="revealBackToTop()">Generate Recommendations!</button>
+            </div>
             <p></p>
         </div>
 
-        <table id=resultsTable></table>
+        <div class="col-sm-12">
+            <table id=resultsTable></table>
+        </div>
         <p></p>
-        <button class="backToTop" id="backToTop" alignment="center" onclick="backToTop()" style="display:none">Back to Top</button>
+        <div class="col-sm-12">
+            <button class="backToTop" id="backToTop" onclick="backToTop()" style="display:none">Back to Top</button>
+        </div>
+        <br>
         <p></p>
     </div>
 </body>
