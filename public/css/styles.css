@@ -63,8 +63,8 @@ h3 {
   cursor: pointer; /*Cursor changes to pointing hand on hover*/
 
   /*On hover animation*/
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.2s; /* Safari */
+  transition-duration: 0.2s;
 }
 .startButtonTransition{
   background-color: rgba(128, 128, 128, 0.575); /* Green on hover*/
@@ -100,8 +100,8 @@ h3 {
   cursor: pointer; /*Cursor changes to pointing hand on hover*/
 
   /*On hover animation*/
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.2s; /* Safari */
+  transition-duration: 0.2s;
 }
 .generateButtonTransition{
   background-color: rgba(128, 128, 128, 0.575); /* Green on hover*/
