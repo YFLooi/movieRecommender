@@ -4,7 +4,7 @@ const app = express(); //Assigns express like a function to a variable
 const port = process.env.PORT || 3000;
 
 const sqlite3=require('sqlite3'); //Import sqlite 3 library
-const db = new sqlite3.Database('movies.sqlite'); //Creates a new connection to movies.db. If does not exist, it will create moviesTest.db
+const db = new sqlite3.Database('movies.sqlite'); //Creates a new connection to movies.sqlite. If does not exist, it will create moviesTest.db
 
 app.use(express.static(__dirname+'/public'));
 
@@ -14,17 +14,34 @@ app.get('/', function(req,res){
 	res.render('./public/index.html');
 });
 
+//Obtains details of top 12 movies for current and previous year
+app.get('/topTwelve',(req, res, next) => {
+	db.all("SELECT * FROM topTwelve",(err,rows) => {	
+		const allPosters = rows.map(e => e.poster);
+		const allTitles = rows.map(e => e.title);
+		const allDescription = rows.map(e => e.description);
+
+		//This will return a JSON string for each constant. In this exact order.
+		res.send({allPosters, allTitles, allDescription});
+	});
+});
+
 //This route GET a list of all user names stored in the db
-app.get('/action',(req, res, next) => {
+app.get('/genre/:genreid/excludeUnrated/:excludeUnratedid',(req, res, next) => {
 	/* Runs a query in SQL. Once it finishes, it runs a callback function that stores data 
-	collected from column 'title' in the parameter 'rows' */
+	collected in the parameter 'rows' */
 	//The anon function has 2 parameters. err is the 1st param by convention.
 	/*What this does? Run the SELECT SQL query, then run the callback function to find err on 
 	each rows.*/
-	db.all('SELECT * FROM action',(err,rows) => {
-		//Prints an array of all 3 rows of 'name'
-		//console.log(rows); 
+	const genreToLookup = req.params.genreid;
+	const excludeUnratedToLookup = req.params.excludeUnratedid;
 
+	db.all('SELECT * FROM allMovies WHERE mainGenre=$genre AND rating!=$excludeUnrated',
+		{ //Declare all variables for WHERE. $ indicates SQL. This does not work for the FROM statement
+			$genre: genreToLookup,
+			$excludeUnrated: excludeUnratedToLookup  
+		},
+		(err,rows) => {
 		//Or a simpler display option to an array: Use a map function
 		/* .map iterates thru rows array. Each element assigned to var 'e'. 
 		The arrow statement for const allTitles means 'Takes in e, and returns e mapped to each element under SQLite's 'title' column 
@@ -51,72 +68,19 @@ app.get('/action',(req, res, next) => {
 	});
 });
 
-//This route GET a list of all user names stored in the db
-app.get('/comedy',(req, res, next) => {
-	db.all('SELECT * FROM comedy',(err,rows) => {
-		//Or a simpler display option to an array: Use a map function
-		/* .map iterates thru rows array. Each element assigned to var 'e'. 
-		The arrow statement for const allTitles means 'Takes in e, and returns e mapped to each element under SQLite's 'title' column 
-		*/
-		//This ensures only the title is returned! Otherwise, it's 0: Object { title: "The Avengers" } and so forth.
-		const allPosters = rows.map(e => e.poster);
-		const allTitles = rows.map(e => e.title);
-		const allYear = rows.map(e => e.year);
-		const allRating = rows.map(e => e.rating);
-		const allDuration = rows.map(e => e.duration);
-		const allGenre = rows.map(e => e.genre);
-		const allImdbrating = rows.map(e => e.imdbRating);
-		const allMetascore = rows.map(e => e.metacritic);
-		const allDescription = rows.map(e => e.description);
-		const allDirectors = rows.map(e => e.directors);
-		const allDirectorrating = rows.map(e => e.directorRating);
-		const allLeadstar = rows.map(e => e.leadstar);
-		const allLeadstarrating = rows.map(e => e.leadstarRating);
-		const allSupportingstars = rows.map(e => e.supportingstars);
-		const allSupportingstarsrating = rows.map(e => e.supportingstarsRating);
 
-		//This will return a JSON string for each constant. In this exact order.
-		res.send({allPosters, allTitles, allYear, allRating, allDuration, allGenre, allImdbrating, allMetascore, allDescription, allDirectors, allDirectorrating, allLeadstar,allLeadstarrating,allSupportingstars,allSupportingstarsrating});
-	});
-});
+app.get('/genre/:genreid/subgenre/:subgenreid/excludeUnrated/:excludeUnratedid',(req, res, next) => {
+	const genreToLookup = req.params.genreid;
+	const subgenreToLookup = req.params.subgenreid;
+	const excludeUnratedToLookup = req.params.excluvdeUnratedid;
 
-//This route GET a list of all user names stored in the db
-app.get('/horror',(req, res, next) => {
-	db.all('SELECT * FROM horror',(err,rows) => {
-		//Or a simpler display option to an array: Use a map function
-		/* .map iterates thru rows array. Each element assigned to var 'e'. 
-		The arrow statement for const allTitles means 'Takes in e, and returns e mapped to each element under SQLite's 'title' column 
-		*/
-		//This ensures only the title is returned! Otherwise, it's 0: Object { title: "The Avengers" } and so forth.
-		const allPosters = rows.map(e => e.poster);
-		const allTitles = rows.map(e => e.title);
-		const allYear = rows.map(e => e.year);
-		const allRating = rows.map(e => e.rating);
-		const allDuration = rows.map(e => e.duration);
-		const allGenre = rows.map(e => e.genre);
-		const allImdbrating = rows.map(e => e.imdbRating);
-		const allMetascore = rows.map(e => e.metacritic);
-		const allDescription = rows.map(e => e.description);
-		const allDirectors = rows.map(e => e.directors);
-		const allDirectorrating = rows.map(e => e.directorRating);
-		const allLeadstar = rows.map(e => e.leadstar);
-		const allLeadstarrating = rows.map(e => e.leadstarRating);
-		const allSupportingstars = rows.map(e => e.supportingstars);
-		const allSupportingstarsrating = rows.map(e => e.supportingstarsRating);
-
-		//This will return a JSON string for each constant. In this exact order.
-		res.send({allPosters, allTitles, allYear, allRating, allDuration, allGenre, allImdbrating, allMetascore, allDescription, allDirectors, allDirectorrating, allLeadstar,allLeadstarrating,allSupportingstars,allSupportingstarsrating});
-	});
-});
-
-//This route GET a list of all user names stored in the db
-app.get('/scifi',(req, res, next) => {
-	db.all('SELECT * FROM scifi',(err,rows) => {
-		//Or a simpler display option to an array: Use a map function
-		/* .map iterates thru rows array. Each element assigned to var 'e'. 
-		The arrow statement for const allTitles means 'Takes in e, and returns e mapped to each element under SQLite's 'title' column 
-		*/
-		//This ensures only the title is returned! Otherwise, it's 0: Object { title: "The Avengers" } and so forth.
+	db.all('SELECT * FROM allMovies WHERE (mainGenre=$genre AND subGenre1=$subgenre AND rating!=$excludeUnrated) OR (mainGenre=$genre AND subGenre2=$subgenre AND rating!=$excludeUnrated)',
+		{ //Declare all variables for WHERE. $ indicates SQL. This does not work for the FROM statement
+			$genre: genreToLookup ,
+			$subgenre: subgenreToLookup,
+			$excludeUnrated: excludeUnratedToLookup  
+		},
+		(err,rows) => {
 		const allPosters = rows.map(e => e.poster);
 		const allTitles = rows.map(e => e.title);
 		const allYear = rows.map(e => e.year);

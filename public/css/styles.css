@@ -1,90 +1,122 @@
-/*Banner CSS style--*/
-div#banner { 
-   position: absolute; 
-   top: 0px; 
-   left: 0;  
-   background-color: yellow; 
-   width: 100%; 
-   font-family: Arial, sans-serif;
-}
-div#bannerText { 
-   position: absolute; 
-   top: 20px; 
-   left: 310px;  
-   width: 100%; 
-   font-family: Arial, sans-serif;
-   font-size: 50px;
+/*Overall <html> CSS style. Removes extra whitespace on sides*/
+html{
+  width: 100%;
+  height: 100%;
+  padding-left:4%;
+  padding-right:4%;
+  background-image: url("/icons/curtains.jpg"); /*For CSS file links, omit the initial / in ./*/
+  background-size: auto; /* Resize the background image to cover the entire container */
+  background-repeat: repeat; /* Repeat the image when image size < page size*/
+  background-color: #cccccc; /* Backup gray backdrop in case image fails to load */
 }
 
+/*Bootstrap style*/
+.row{
+  padding-left:2%;
+  padding-right:2%;
+}
+
+
+/*Banner CSS style--*/
+img#bannerImg {
+  max-width: 100%;
+  height: auto; 
+}
 
 /*Page CSS style--*/
 body {
-     background-color: white;
-     }
-
+  background-color: black;
+  color:white; /*Sets all text in <body> to white, unless specified otherwise for a specific class or id*/
+  width:100%;
+}
 h1 {
-      background-color: yellow;
-    }
-
+  color:white;
+  font-size: 16pt;
+}
 h2 {
-     background-color: gray;
-     }  
-
-/*thead CSS style. Grabs by <th> tag*/
-.header {
-  cursor: pointer;
+  color:white;
+  font-size: 14pt;
+}  
+h3 {
+  color:white;
+  font-size: 13pt;
+}
+.attribution{
+  font-size:"0.5px";
+  color: rgb(168, 161, 161);
+  text-align: right;
 }
 
-.headerSortDown:after {
-  content: " ▾"; /*Adds a down arrow after clicking header*/
-  font-family: Arial, sans-serif;
+/*Start button*/
+.startButton{
+  /*Dimensions*/
+  width: 200px;
+  height: 100px;
+  border-radius: 5%; /*Rounds the button's edges*/
+
+  /*Look and feel*/
+  font-size: 15pt;
+  padding: 8px; /*Space between text and button's borders*/
+  background-color: #4CAF50; /* Green */
+  color: white; /*Button text colour*/
+  text-align: center;
+  cursor: pointer; /*Cursor changes to pointing hand on hover*/
+
+  /*On hover animation*/
+  -webkit-transition-duration: 0.2s; /* Safari */
+  transition-duration: 0.2s;
+}
+.startButtonTransition{
+  background-color: rgba(128, 128, 128, 0.575); /* Green on hover*/
+  color: white; /* Text colour before hover*/
+  border: 5px solid white; /*Adds colour to button border */
+}
+.startButtonTransition:hover {
+  background-color: #4CAF50; /* Green on hover*/
+  color: white; /* Text colour after hover*/
+  border: 5px solid white; /*Adds colour to button border */
 }
 
-.headerSortUp:after {
-  content: " ▴";
-  font-family: Arial, sans-serif;
+/*Star ratings*/
+.starRating {
+  width:15%;
+  height:auto;
+  margin-bottom:1.5%;
 }
 
-/*For tbody. Grabs only by class attr*/
-.results {
-  border-collapse: collapse;
-  border-color: #537DB9;
-  border-width: 1px;
-  border-style: solid;
-  margin-bottom: 15px;
+/*Generate button*/
+.generateButton{
+  /*Dimensions*/
+  width: 200px;
+  height: 100px;
+  border-radius: 5%; /*Rounds the button's edges*/
+
+  /*Look and feel*/
+  font-size: 15pt;
+  padding: 8px; /*Space between text and button's borders*/
+  background-color: #4CAF50; /* Green */
+  color: white; /*Button text colour*/
+  text-align: center;
+  cursor: pointer; /*Cursor changes to pointing hand on hover*/
+
+  /*On hover animation*/
+  -webkit-transition-duration: 0.2s; /* Safari */
+  transition-duration: 0.2s;
+}
+.generateButtonTransition{
+  background-color: rgba(128, 128, 128, 0.575); /* Green on hover*/
+  color: white; /* Text colour before hover*/
+  border: 5px solid white; /*Adds colour to button border */
+}
+.generateButtonTransition:hover {
+  background-color: #4CAF50; /* Green on hover*/
+  color: white; /* Text colour after hover*/
+  border: 5px solid white; /*Adds colour to button border */
 }
 
-.results caption {
-  text-align: left;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.results th {
-  text-transform: inherit;
-  white-space: normal; /*Replace 'normal' with 'nowrap' for text wrap*/
-  background-color: #3366CC;
-  color: #FFFFFF;
-  padding: 2px 10px 2px 10px;
-  border-right: #FFFFFF;
-  border-width: 1px;
-  border-style: none dotted none none;
-}
-
-.results td {
-  padding: 5px 10px 5px 10px;
-  border-right: #cccccc;
-  border-width: 1px;
-  border-style: none dotted none none;
-  vertical-align: top;
-}
-
-.results tr:nth-child(odd) {
-  background-color: #FFFFFF;
-}
-
-.results tr:nth-child(even) {
-  background-color: #E6E6E6;
-}
-
-   
+.backToTop{
+  /*Dimensions*/
+  width: 200px;
+  border-radius: 5%; /*Rounds the button's edges*/
+  font-size: 12pt;
+} 
