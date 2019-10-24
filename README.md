@@ -7,8 +7,8 @@ Suggest movies by calculating a match score based on the weight of user-selected
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
-(Version numbers were at time of deployment in 2018)
-For runtime environment:  
+(Version numbers were at time of deployment in 2018) <br/>
+For runtime environment: <br/>  
 *  nodejs: v8.10.0
 *  npm v5.6.0
 
