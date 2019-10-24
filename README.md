@@ -8,9 +8,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 (Version numbers were at time of deployment in 2018)
-  For runtime environment:
-  nodejs: v8.10.0
-  npm v5.6.0
+  *For runtime environment:
+  *nodejs: v8.10.0
+  *npm v5.6.0
 
   Dependencies:
   body-parser: 1.18.3
