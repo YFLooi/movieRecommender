@@ -2,6 +2,7 @@
 Suggest movies by calculating a match score based on the weight of user-selected criteria. Criteria include Metacritic score, IMDB rating, and importance of director, lead star, and supporting stars. Results are displayed in sortable table. 
 
 ![alt text](https://drive.google.com/file/d/1Zf84FKe7j063P3f2KQakfLpRRNRGZ7xt/view?usp=sharing)
+![octocat](https://github.com/username/repository/blob/master/img/octocat.png|alt=octocat)
 [[https://github.com/username/repository/blob/master/img/octocat.png|alt=octocat]]
 
 ## Getting Started
